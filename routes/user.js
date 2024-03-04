@@ -18,6 +18,10 @@ router
   .get(userController.renderLoginForm)
   .post( saveRedirectUrl, passport.authenticate("local",{ failureRedirect: '/login', failureFlash: true }),userController.login);
 
+router.get("/",(req,res)=>{
+    res.redirect('/listings');
+});
+
 
 router.get("/logout",userController.logout);
 
